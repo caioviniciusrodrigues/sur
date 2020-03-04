@@ -1,0 +1,61 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/usuarios">Usuários</a></li>
+    <li class="breadcrumb-item active">Cadastro de usuário</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h2> {{ pageTitle }} </h2>
+  </div>
+  <div class="col-sm-6">
+    <a routerLink="/usuarios" class="btn btn-secondary float-right"><< Voltar</a>
+  </div>
+</div>
+
+<form [formGroup]="usuarioForm" (submit)="submitForm()" >
+  <div class="card mt-4">
+    <div class="card-header">
+      Formulário de Usuários
+    </div>
+    <div class="card-body">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" formControlName="nome" class="form-control">
+          <div class="text-danger" *ngIf="usuarioForm.invalid && usuarioForm.get('nome') && (usuarioForm.get('nome').touched || usuarioForm.get('nome').dirty)">
+            <div *ngIf="usuarioForm.get('nome').hasError('required')">Campo nome é obrigatório</div>
+            <div *ngIf="usuarioForm.get('nome').hasError('minlength')">Campo nome precisa ter mais de 3 caracteres</div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="login">Login</label>
+          <input type="text" id="login" name="login" formControlName="login" class="form-control">
+          <div class="text-danger" *ngIf="usuarioForm.invalid && usuarioForm.get('login') && (usuarioForm.get('login').touched || usuarioForm.get('login').dirty)">
+            <div *ngIf="usuarioForm.get('login').hasError('required')">Campo login é obrigatório</div>
+            <div *ngIf="usuarioForm.get('login').hasError('minlength')">Campo login precisa ter mais de 3 caracteres</div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" formControlName="password" class="form-control">
+          <div class="text-danger" *ngIf="usuarioForm.invalid && usuarioForm.get('password') && (usuarioForm.get('password').touched || usuarioForm.get('password').dirty)">
+            <div *ngIf="usuarioForm.get('password').hasError('required')">Campo senha é obrigatório</div>
+            <div *ngIf="usuarioForm.get('password').hasError('minlength')">Campo senha precisa ter mais de 3 caracteres</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger mt-4" *ngIf="erros.length > 0">
+    <strong>Erros servidor:</strong>
+    <div *ngFor="let erro of erros">
+      {{ erro }}
+    </div>
+  </div>
+
+  <button [disabled]="submitted || usuarioForm.invalid" type="submit" class="btn btn-primary btn-lg mt-2 float-right">Salvar</button>
+</form>

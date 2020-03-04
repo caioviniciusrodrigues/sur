@@ -1,0 +1,54 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Caio Rodrigues",
+      "login": "caio",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "nome": "Caio Rodrigues",
+      "login": "caio",
+      "password": "123456"
+    },
+    {
+      "id": 3,
+      "nome": "Caio Rodrigues",
+      "login": "caio",
+      "password": "123456"
+    },
+    {
+      "id": 4,
+      "nome": "Caio Rodrigues",
+      "login": "caio",
+      "password": "123456"
+    },
+    {
+      "id": 5,
+      "nome": "Caio Rodrigues1",
+      "login": "caio.rodrigues",
+      "password": "123456"
+    },
+    {
+      "id": 6,
+      "nome": "JUNIOR",
+      "login": "JUNIOr",
+      "password": "JUNIOR"
+    },
+    {
+      "id": 7,
+      "nome": "ssssssss",
+      "login": "sssssss",
+      "password": "ssssssssss"
+    }
+  ],
+  "empresas": [
+    {
+      "id": 1,
+      "razaosocial": "Tsi",
+      "cnpj": "423423423",
+      "administrador" : "caio.rodrigues@telematica.com.br"
+    }
+  ]
+}
